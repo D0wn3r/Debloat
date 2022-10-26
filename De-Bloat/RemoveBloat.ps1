@@ -677,7 +677,7 @@ if ($mcafeeinstalled -eq "true") {
 ### Download McAfee Consumer Product Removal Tool ###
 write-host "Downloading McAfee Removal Tool"
 # Download Source
-$URL = 'https://github.com/andrew-s-taylor/public/raw/main/De-Bloat/mcafeeclean.zip'
+$URL = 'https://github.com/D0wn3r/Debloat/raw/main/De-Bloat/mcafeeclean.zip'
 
 # Set Save Directory
 $destination = 'C:\ProgramData\Debloat\mcafee.zip'

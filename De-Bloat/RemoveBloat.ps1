@@ -699,7 +699,7 @@ write-host "McAfee Removal Tool has been run"
 
 ##Make sure Intune hasn't installed anything so we don't remove installed apps
 
-$intunepath = "HKLM:\SOFTWARE\Microsoft\IntuneManagementExtension\Win32Apps"
+<# $intunepath = "HKLM:\SOFTWARE\Microsoft\IntuneManagementExtension\Win32Apps"
 $intunecomplete = @(Get-ChildItem $intunepath).count
 if ($intunecomplete -eq 0) {
 
@@ -788,7 +788,7 @@ Start-Process "$directory\Google\Chrome\Application\$version\Installer\setup.exe
 
 }
 
-}
+} #>
 
 write-host "Completed"
 

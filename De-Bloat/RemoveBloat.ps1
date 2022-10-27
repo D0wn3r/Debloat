@@ -35,6 +35,8 @@ N/A
 #                                                                                                          #
 ############################################################################################################
 
+
+
 ##Elevate if needed
 
 If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
@@ -58,6 +60,10 @@ $ErrorActionPreference = 'silentlycontinue'
 $DebloatFolder = "C:\ProgramData\Debloat"
 If (Test-Path $DebloatFolder) {
     Write-Output "$DebloatFolder exists. Skipping."
+    if (Test-Path $DebloatFolder\Validate.txt) {
+        Write-Output "$DebloatFolder\Validate.txt exists. Skipping cleanning."
+        Exit
+    }
 }
 Else {
     Write-Output "The folder '$DebloatFolder' doesn't exist. This folder will be used for storing logs created after the script runs. Creating now."
@@ -790,6 +796,7 @@ Start-Process "$directory\Google\Chrome\Application\$version\Installer\setup.exe
 
 } #>
 
+New-Item -Path "$DebloatFolder\Validate.txt" -ItemType File
 write-host "Completed"
 
 Stop-Transcript
